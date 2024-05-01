@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jeevan medico</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: #1a1a1a;
+      border-radius: 10px;
+      
+    }
+    *:hover{
+      color:red;
+
+      
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+     
+        margin-right: 150px;
+     
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+    }
+
+    /* Header and navigation styles */
+    .navbar {
+      background-color: #ffffff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+      
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar-menu li {
+      margin-left: 20px;
+    }
+
+    /* Main content styles */
+    main {
+      display: grid;
+      grid-gap: 20px;
+    }
+
+    .explore,
+    .highlights,
+    .podcasts {
+      display: grid;
+      grid-gap: 20px;
+      width: 500px;
+      margin-left: 10px;
+    }
+
+    .card {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 5px;
+      /* Add your card styles here */
+    }
+
+    /* Comments sidebar styles */
+    .comments {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .comments h2 {
+      margin-bottom: 10px;
+    }
+
+    .comments ul {
+      list-style-type: none;
+    }
+
+    .comments li {
+      margin-bottom: 10px;
+      /* Add your comment item styles here */
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar-menu {
+        display: none;
+      }
+
+      .explore,
+      .highlights,
+      .podcasts {
+        grid-template-columns: 1fr;
+        
+      }
+    }
+
+    /* Laptop styles */
+    @media (min-width: 769px) {
+      .container {
+        grid-template-columns: 3fr 1fr;
+      }
+
+      .explore,
+      .highlights {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .podcasts {
+        grid-template-columns: 1fr;
+      }
+      
+      
+      
+    }
+   /* CSS */
+.slider {
+  position: relative;
+  max-width: 600px; /* You can set this to the desired width */
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides .slide {
+  display: none;
+  width: 100%;
+  height: 300px; /* You can set this to the desired height */
+  background-size: cover;
+  background-position: center;
+}
+
+.slides .active {
+  display: block;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+@media only screen and (max-width: 600px){
+  .slider{
+    width: 400px;
+  }
+}
+.favicon{
+  height: 40px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar">
+        <div class="navbar-brand"><img src="https://cdn.pixabay.com/animation/2023/03/28/12/29/12-29-39-349_512.gif" class="favicon"></img></div>
+        <ul class="navbar-menu">
+          <li>Home</li>
+          <li>Explore</li>
+          <li>Podcasts</li>
+          <li>Community</li>
+        </ul>
+      </nav>
+      
+      
+<!-- HTML -->
+<div class="slider">
+  <div class="slides">
+    <div class="slide active" ><img src="https://buffer.com/library/content/images/2023/10/free-images.jpg"></img></div>
+    <div class="slide" ><img src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg"></img></div>
+    <div class="slide" ><img src="https://buffer.com/library/content/images/2023/10/free-images.jpg"></img></div>
+    <div class="slide" ><img src="https://buffer.com/library/content/images/2023/10/free-images.jpg"></img></div>
+  </div>
+  <a class="prev" onclick="moveSlide(-1)">❮</a>
+  <a class="next" onclick="moveSlide(1)">❯</a>
+</div>
+
+</header>
+    <main>
+      <section class="explore">
+        
+        
+
+<style>
+  .custom-card-container {
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+  }
+
+  .custom-cards {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .custom-card {
+    flex: 0 0 auto;
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    margin-right: 20px; /* Adjust the spacing between cards */
+    background-color: #f0f0f0; /* Adjust the background color */
+    border: 1px solid #ccc; /* Adjust the border */
+    border-radius: 5px; /* Adjust the border radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; /* Adjust the font size */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+
+  .custom-arrow {
+    position: absolute;
+    top: 50%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+
+  .custom-left-arrow {
+    left: 10px;
+  }
+
+  .custom-right-arrow {
+    right: 10px;
+  }
+
+  .custom-arrow:hover {
+    transform: translateY(-50%) scale(1.2); /* Hover effect */
+  }
+  @media (min-width: 600px){
+    .custom-card-container{
+      width: 600px;
+    }
+    *{
+        margin-left: 5px;
+      }
+    .navbar{
+      padding: 20px;
+    }
+    
+    }
+  
+</style>
+
+
+
+<div class="custom-card-container">
+  <div class="custom-cards">
+    <!-- Your cards will go here -->
+    <!-- Example card -->
+    <div class="custom-card">Card 1</div>
+    <!-- Example card -->
+    <div class="custom-card">Card 2</div>
+    <!-- Add more cards as needed -->
+    <!-- Example card -->
+    <div class="custom-card">Card 3</div>
+    <!-- Example card -->
+    <div class="custom-card">Card 4</div>
+    <!-- Add more cards as needed -->
+    <!-- Example card -->
+    <div class="custom-card">Card 5</div>
+    <!-- Example card -->
+    <div class="custom-card">Card 6</div>
+    <!-- Add more cards as needed -->
+    <!-- Example card -->
+    <!-- Add more cards as needed -->
+    <!-- Example card -->
+    <div class="custom-card">Card 7</div>
+    <!-- Example card -->
+    <div class="custom-card">Card 8</div>
+    <!-- Add more cards as needed -->
+    <!-- Example card -->
+    <div class="custom-card">Card 9</div>
+    <!-- Example card -->
+    <div class="custom-card">Card 10</div>
+    <!-- Add more cards as needed -->
+  </div>
+  <button class="custom-arrow custom-left-arrow">&lt;</button>
+  <button class="custom-arrow custom-right-arrow">&gt;</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelector('.custom-cards');
+    const cardContainer = document.querySelector('.custom-card-container');
+    const leftArrow = document.querySelector('.custom-left-arrow');
+    const rightArrow = document.querySelector('.custom-right-arrow');
+    const cardWidth = document.querySelector('.custom-card').offsetWidth;
+    const cardMargin = 20; // Margin between cards
+  
+    let scrollAmount = 0;
+    const autoScrollSpeed = 1; // Adjust auto-scroll speed (pixels per frame)
+    let isAutoScrollPaused = false;
+  
+    // Function to scroll cards to the left
+    function scrollLeft() {
+      scrollAmount = Math.max(scrollAmount - autoScrollSpeed, 0);
+      cards.style.transform = `translateX(${-scrollAmount}px)`;
+    }
+  
+    // Function to scroll cards to the right
+    function scrollRight() {
+      scrollAmount = Math.min(scrollAmount + autoScrollSpeed, cards.scrollWidth - cardContainer.offsetWidth);
+      cards.style.transform = `translateX(${-scrollAmount}px)`;
+    }
+  
+    // Pause auto-scroll on mouseover
+    cards.addEventListener('mouseover', function() {
+      isAutoScrollPaused = true;
+    });
+  
+    // Resume auto-scroll on mouseout
+    cards.addEventListener('mouseout', function() {
+      isAutoScrollPaused = false;
+    });
+  
+    leftArrow.addEventListener('click', function () {
+      scrollLeft();
+      isAutoScrollPaused = true; // Pause auto-scroll on arrow click
+    });
+  
+    rightArrow.addEventListener('click', function () {
+      scrollRight();
+      isAutoScrollPaused = true; // Pause auto-scroll on arrow click
+    });
+  
+    // Auto-scrolling
+    function autoScroll() {
+      if (!isAutoScrollPaused) {
+        if (scrollAmount + cardContainer.offsetWidth >= cards.scrollWidth) {
+          // Reset scroll amount to beginning
+          scrollAmount = 0;
+          cards.style.transform = `translateX(0px)`;
+        } else {
+          scrollRight();
+        }
+      }
+      requestAnimationFrame(autoScroll);
+    }
+  
+    autoScroll();
+  });
+  </script>
+  
+
+
+
+        
+      </section>
+      
+      <section class="highlights">
+        <style>
+          .button-container {
+            text-align: center;
+          }
+          .button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+          }
+          .button:hover {
+            background-color: #ddd;
+            color: #333;
+          }
+          .exit-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            margin-right: 400px;
+            margin-top: 300px;
+          }
+          .button-row {
+            margin-top: 20px;
+          }
+          .icon {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+          }
+          @media (min-width: 600px){
+            .exit-button { margin-right: 40px;
+            margin-top: 612px;}
+          }
+        </style>
+        </head>
+        <body>
+        <div class="button-container">
+          <button class="button" onclick="orderSocialMedia()">Order Through Social Media</button>
+          <button class="button" onclick="orderWebsite()">Order Through Website</button>
+        </div>
+        
+        <div class="button-row" id="socialMediaButtons" style="display: none;">
+          <button class="button" onclick="orderWhatsApp()">Order Through WhatsApp</button>
+          <button class="button" onclick="orderGmail()">Order Through Gmail</button>
+          <button class="button exit-button" onclick="goBackSocialMedia()">Back</button>
+        </div>
+        
+        <div class="button-row" id="websiteButtons" style="display: none;">
+          <button class="button" onclick="orderImage()">Order Through Image</button>
+          <button class="button" onclick="orderForm()">Order Through Form</button>
+          <button class="button exit-button" onclick="goBackWebsite()">Back</button>
+        </div>
+        
+        <button class="button exit-button" onclick="goBack()" style="display: none;" id="generalBackButton">Back</button>
+        
+        <script>
+          function orderSocialMedia() {
+            document.getElementById('socialMediaButtons').style.display = 'block';
+            document.getElementById('websiteButtons').style.display = 'none';
+            document.querySelector('.button-container').style.display = 'none';
+          }
+        
+          function orderWebsite() {
+            document.getElementById('websiteButtons').style.display = 'block';
+            document.getElementById('socialMediaButtons').style.display = 'none';
+            document.querySelector('.button-container').style.display = 'none';
+          }
+        
+          function orderWhatsApp() {
+            window.open('https://wa.me/+918055773845', '_blank');
+          }
+        
+          function orderGmail() {
+            var emailAddress = 'jeevanmedicoabhi@gmail.com';
+            var subject = 'Order';
+            var body = 'Thank you for your order from Jeevan Medico.';
+            var mailtoLink = 'mailto:' + encodeURIComponent(emailAddress) +
+                             '?subject=' + encodeURIComponent(subject) +
+                             '&body=' + encodeURIComponent(body);
+            var a = document.createElement('a');
+            a.href = mailtoLink;
+            a.click();
+          }
+        
+          function orderImage() {
+            window.open('https://forms.gle/BtASRoeMXy6VYHya6', '_blank');
+          }
+        
+          function orderForm() {
+            var iframe = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdxSpix2mPLhzXLupAWDuSeNQmPLlsdT6-eo7yJPr6G3uZczQ/viewform?embedded=true" width="600" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>';
+            document.body.innerHTML += iframe;
+            document.getElementById('websiteButtons').style.display = 'none';
+            document.getElementById('generalBackButton').style.display = 'block';
+          }
+        
+          function goBack() {
+            document.getElementById('websiteButtons').style.display = 'none';
+            document.getElementById('socialMediaButtons').style.display = 'none';
+            document.querySelector('.button-container').style.display = 'block';
+            document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+            document.getElementById('generalBackButton').style.display = 'none';
+          }
+        
+          function goBackSocialMedia() {
+            document.getElementById('socialMediaButtons').style.display = 'none';
+            document.querySelector('.button-container').style.display = 'block';
+          }
+        
+          function goBackWebsite() {
+            document.getElementById('websiteButtons').style.display = 'none';
+            document.querySelector('.button-container').style.display = 'block';
+          }
+        </script>
+        
+      </section>
+
+      <section class="podcasts">
+        
+      </section>
+    </main>
+
+    
+      
+  </div>
+
+  <script >// JavaScript
+   let slideIndex = 0;
+showSlides(slideIndex);
+
+// Auto-play the slider every 3 seconds (adjust the interval as needed)
+let slideInterval = setInterval(function() {
+  moveSlide(1); // Move to the next slide
+}, 3000); // 3000 milliseconds = 3 seconds
+
+function moveSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  if (n > slides.length - 1) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+
+    
+    </script>
+    
+</body>
+</html>
